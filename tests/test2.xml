@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlego>
+    
+    <!-- Must raise error because of cycle -->
+    <template id="mytemplate1">
+        <div id="mydiv1">
+            test
+        </div>
+    </template>
+    <template id="mytemplate2" inherits="mytemplate1">
+        <xpath expr="//div[@id='mydiv1']" position="after">
+            <div id="mydiv2">
+                test2
+            </div>
+        </xpath>
+    </template>
+    <template id="mytemplate3" inherits="mytemplate2">
+        <xpath expr="//div[@id='mydiv2']" position="after">
+            <div id="mydiv3">
+                test3
+            </div>
+        </xpath>
+    </template>
+    <template id="mytemplate4" inherits="mytemplate2">
+        <xpath expr="//div[@id='mydiv2']" position="after">
+            <div id="mydiv4">
+                test4
+            </div>
+        </xpath>
+    </template>
+
+
+    <!-- Cyclic dependencies  -->
+    <template id="mytemplate5" inherits="mytemplate7">
+        <xpath expr="//div[@id='mydiv2']" position="after">
+            <div id="mydiv5">
+                test5
+            </div>
+        </xpath>
+    </template>
+    <template id="mytemplate6" inherits="mytemplate5">
+        <xpath expr="//div[@id='mydiv5']" position="after">
+            <div id="mydiv6">
+                test6
+            </div>
+        </xpath>
+    </template>
+    <template id="mytemplate7" inherits="mytemplate6">
+        <xpath expr="//div[@id='mydiv6']" position="after">
+            <div id="mydiv7">
+                test7
+            </div>
+        </xpath>
+    </template>
+</xmlego>

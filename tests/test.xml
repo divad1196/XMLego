@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlego>
+    <template id="mytemplate1">
+        <div id="mydiv1">
+            test
+        </div>
+    </template>
+    <template id="mytemplate2" inherits="mytemplate1">
+        <xpath expr="div[@id='mydiv1']" position="after">
+            <div id="mydiv2">
+                test2
+            </div>
+        </xpath>
+    </template>
+    <template id="mytemplate3" inherits="mytemplate2">
+        <xpath expr="div[@id='mydiv2']" position="after">
+            <div id="mydiv3">
+                test3
+            </div>
+        </xpath>
+    </template>
+    <template id="mytemplate4" inherits="mytemplate2">
+        <xpath expr="div[@id='mydiv2']" position="after">
+            <div id="mydiv4">
+                <t-set value="0" as="mysum"/>
+                <div t-foreach="(i, i + 5) for i in range(7)" t-as="i, j">
+                    <div t-text="i" t-att-class="'class' + str(i)">test loop </div>
+                    <t-set value="mysum + j" as="mysum"/>
+                    <div t-text="mysum" >current sum: </div>
+                    <br/>
+                    <br/>
+                    <div t-text="i" >current index: </div>
+                    <div t-if="not i % 2"> MOD 2!</div>
+                    <div t-elif="not i % 3"> MOD 3!</div>
+                    <div t-else=""> Not Mod 2 nor Mod 3</div>
+                </div>
+            </div>
+            <div t-text="mysum" >final sum: </div>
+        </xpath>
+    </template>
+</xmlego>
