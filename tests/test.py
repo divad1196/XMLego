@@ -1,6 +1,5 @@
 from lxml import etree
-from xmlego.xmlego import to_graph, solve_graph
-from xmlego.utils import print_xml
+from xmlego.utils import print_xml, to_graph, solve_graph
 from xmlego.templating import eval_xml
 
 # Retrieve all templates

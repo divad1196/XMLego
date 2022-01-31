@@ -1,3 +1,5 @@
 from . import templating
 from . import utils
-from . import xmlego
+from . import code
+from . import manager
+from . import resolver

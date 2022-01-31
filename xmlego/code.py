@@ -96,8 +96,6 @@ def eval_code(code, globals=None, locals=None):
         locals = {}
     return eval(code, globals, locals)
 
-
-
 # TODO: Not working
 # @contextlib.contextmanager
 # def safe_code():
