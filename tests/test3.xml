@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlego>
+    
+    <!-- Check security -->
+    <template id="mytemplate1">
+        <div id="mydiv1">
+            <!-- <t-set value="import os" as="os"/>
+            <t-set value="print('test') or 'hello'" as="hello"/> -->
+            <span t-text="print('test') or hello"/>
+        </div>
+    </template>
+</xmlego>

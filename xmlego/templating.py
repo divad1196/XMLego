@@ -1,7 +1,9 @@
+# import imp
 import imp
 from lxml import etree
 from .utils import copy_element, insert_after, print_xml, remove_element, clear_element
 from itertools import chain
+from .code import eval_code, exec_code
 
 FOR_VALUE_ATTR = "t-foreach"
 FOR_AS_ATTR = "t-as"
@@ -21,23 +23,6 @@ ATTR_EVAL_PREFIX_LEN = len(ATTR_EVAL_PREFIX)
 ATTR_IF = "t-if"
 ATTR_ELIF = "t-elif"
 ATTR_ELSE = "t-else"
-
-# In case we need to filter
-# Globals must contain __builtins__ entry 
-def exec_code(code, globals=None, locals=None):
-    if globals is None:
-        globals = {}
-    if locals is None:
-        locals = {}
-    exec(code, globals, locals)
-    return globals, locals
-
-def eval_code(code, globals=None, locals=None):
-    if globals is None:
-        globals = {}
-    if locals is None:
-        locals = {}
-    return eval(code, globals, locals)
 
 def remove_transient_tags(xml):
     transients = chain(

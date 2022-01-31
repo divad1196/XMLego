@@ -14,3 +14,21 @@ print_xml(res)
 
 res, _ = eval_xml(res)
 print_xml(res)
+
+
+
+
+# Retrieve all templates
+tree = etree.parse("test3.xml")
+templates = tree.getroot().findall("template")  # use xpath instead?
+
+# Resolve order 
+graph = to_graph(templates)
+res = solve_graph(graph)[0]
+print_xml(res)
+
+try:
+    res, _ = eval_xml(res)
+    print_xml(res)
+except Exception:
+    print("Exception correctly raised")

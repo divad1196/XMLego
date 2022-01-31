@@ -79,7 +79,3 @@ def solve_graph(graph):
         raise Exception("has cycle")
     return [_solve_graph(g) for g in split_graph(graph)]
 
-# graph = igraph.Graph(directed=True)
-# graph.add_vertex   # Add vertex "node"
-# graph.bfsiter(0)   # Iter over vertex
-# graph.vs.find("test")  # Get vertex by its name
